@@ -1,0 +1,554 @@
+
+> landlordos@0.1.0 dev
+> next dev
+
+⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of C:\Users\Administrator\package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * C:\Users\Administrator\Desktop\BrowserBase Pipeline\website-genesis-output\landlordos\package-lock.json
+
+▲ Next.js 16.1.1 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://154.12.244.112:3000
+
+✓ Starting...
+⨯ The file "./proxy.ts" must export a function, either as a default export or as a named "proxy" export.
+This function is what Next.js runs for every request handled by this proxy (previously called middleware).
+
+Why this happens:
+- You are migrating from `middleware` to `proxy`, but haven't updated the exported function.
+- The file exists but doesn't export a function.
+- The export is not a function (e.g., an object or constant).
+- There's a syntax error preventing the export from being recognized.
+
+To fix it:
+- Ensure this file has either a default or "proxy" function export.
+
+Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+✓ Ready in 3.2s
+⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+✓ Compiled in 792ms
+Persisting failed: Unable to write SST file 00000424.sst
+
+Caused by:
+    The system cannot find the path specified. (os error 3)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+⨯ Error: Cannot find module 'C:\Users\Administrator\Desktop\BrowserBase Pipeline\website-genesis-output\landlordos\.next\dev\server\middleware-manifest.json'
+Require stack:
+- C:\Users\Administrator\Desktop\BrowserBase Pipeline\website-genesis-output\landlordos\node_modules\next\dist\server\next-server.js
+- C:\Users\Administrator\Desktop\BrowserBase Pipeline\website-genesis-output\landlordos\node_modules\next\dist\server\dev\next-dev-server.js
+- C:\Users\Administrator\Desktop\BrowserBase Pipeline\website-genesis-output\landlordos\node_modules\next\dist\server\next.js
+- C:\Users\Administrator\Desktop\BrowserBase Pipeline\website-genesis-output\landlordos\node_modules\next\dist\server\lib\start-server.js
+    at ignore-listed frames {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+
+thread 'tokio-runtime-worker' (92340) panicked at C:\actions-runner\_work\next.js\next.js\turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+
+Caused by:
+    0: Looking up data for TaskId 44672 from database failed
+    1: Unable to open static sorted file referenced from 00000392.meta
+    2: Unable to open static sorted file 00000384.sst
+    3: The system cannot find the path specified. (os error 3)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+-----
+[1m[31mFATAL[39m[0m: An unexpected Turbopack error occurred. A panic log has been written to C:\Users\ADMINI~1\AppData\Local\Temp\2\next-panic-403988149ee1c34a174ea5b996eed4e2.log.
+
+To help make Turbopack better, report this error by ]8;;https://github.com/vercel/next.js/discussions/new?category=turbopack-error-report&title=Turbopack%20Error%3A%20Failed%20to%20restore%20task%20data%20%28corrupted%20database%20or%20bug%29%3A%20Meta%20for%20get_written_endpoint_with_issues_operation%20%28TaskId%2044672%29%29&body=Turbopack%20version%3A%20%60d1bd5b58%60%0ANext.js%20version%3A%20%600.0.0%60%0A%0AError%20message%3A%0A%60%60%60%0AFailed%20to%20restore%20task%20data%20%28corrupted%20database%20or%20bug%29%3A%20Meta%20for%20get_written_endpoint_with_issues_operation%20%28TaskId%2044672%29%29%0A%0ADebug%20info%3A%0A-%20Failed%20to%20restore%20task%20data%20%28corrupted%20database%20or%20bug%29%3A%20Meta%20for%20get_written_endpoint_with_issues_operation%20%28TaskId%2044672%29%29%0A%20%20%0A%20%20Caused%20by%3A%0A%20%20%20%20%20%200%3A%20Looking%20up%20data%20for%20TaskId%2044672%20from%20database%20failed%0A%20%20%20%20%20%201%3A%20Unable%20to%20open%20static%20sorted%20file%20referenced%20from%2000000392.meta%0A%20%20%20%20%20%202%3A%20Unable%20to%20open%20static%20sorted%20file%2000000384.sst%0A%20%20%20%20%20%203%3A%20The%20system%20cannot%20find%20the%20path%20specified.%20%28os%20error%203%29%0A%60%60%60&labels=Turbopack,Turbopack%20Panic%20Backtrace\clicking here.]8;;\
+-----
+
+⨯ Error [TurbopackInternalError]: Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+
+Debug info:
+- Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+  
+  Caused by:
+      0: Looking up data for TaskId 44672 from database failed
+      1: Unable to open static sorted file referenced from 00000392.meta
+      2: Unable to open static sorted file 00000384.sst
+      3: The system cannot find the path specified. (os error 3)
+    at <unknown> (TurbopackInternalError: Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))) {
+  location: 'C:\\actions-runner\\_work\\next.js\\next.js\\turbopack\\crates\\turbo-tasks-backend\\src\\backend\\operation\\mod.rs:156:17'
+}
+
+thread 'tokio-runtime-worker' (116696) panicked at C:\actions-runner\_work\next.js\next.js\turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+
+Caused by:
+    0: Looking up data for TaskId 44672 from database failed
+    1: Unable to open static sorted file referenced from 00000392.meta
+    2: Unable to open static sorted file 00000384.sst
+    3: The system cannot find the path specified. (os error 3)
+Error [TurbopackInternalError]: Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+
+Debug info:
+- Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+  
+  Caused by:
+      0: Looking up data for TaskId 44672 from database failed
+      1: Unable to open static sorted file referenced from 00000392.meta
+      2: Unable to open static sorted file 00000384.sst
+      3: The system cannot find the path specified. (os error 3)
+    at <unknown> (TurbopackInternalError: Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))) {
+  location: 'C:\\actions-runner\\_work\\next.js\\next.js\\turbopack\\crates\\turbo-tasks-backend\\src\\backend\\operation\\mod.rs:156:17'
+}
+
+thread 'tokio-runtime-worker' (92340) panicked at C:\actions-runner\_work\next.js\next.js\turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+
+Caused by:
+    0: Looking up data for TaskId 44672 from database failed
+    1: Unable to open static sorted file referenced from 00000392.meta
+    2: Unable to open static sorted file 00000384.sst
+    3: The system cannot find the path specified. (os error 3)
+⨯ Error [TurbopackInternalError]: Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+
+Debug info:
+- Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+  
+  Caused by:
+      0: Looking up data for TaskId 44672 from database failed
+      1: Unable to open static sorted file referenced from 00000392.meta
+      2: Unable to open static sorted file 00000384.sst
+      3: The system cannot find the path specified. (os error 3)
+    at <unknown> (TurbopackInternalError: Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))) {
+  location: 'C:\\actions-runner\\_work\\next.js\\next.js\\turbopack\\crates\\turbo-tasks-backend\\src\\backend\\operation\\mod.rs:156:17'
+}
+
+thread 'tokio-runtime-worker' (106296) panicked at C:\actions-runner\_work\next.js\next.js\turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+
+Caused by:
+    0: Looking up data for TaskId 44672 from database failed
+    1: Unable to open static sorted file referenced from 00000392.meta
+    2: Unable to open static sorted file 00000384.sst
+    3: The system cannot find the path specified. (os error 3)
+Error [TurbopackInternalError]: Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+
+Debug info:
+- Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+  
+  Caused by:
+      0: Looking up data for TaskId 44672 from database failed
+      1: Unable to open static sorted file referenced from 00000392.meta
+      2: Unable to open static sorted file 00000384.sst
+      3: The system cannot find the path specified. (os error 3)
+    at <unknown> (TurbopackInternalError: Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))) {
+  location: 'C:\\actions-runner\\_work\\next.js\\next.js\\turbopack\\crates\\turbo-tasks-backend\\src\\backend\\operation\\mod.rs:156:17'
+}
+
+thread 'tokio-runtime-worker' (92340) panicked at C:\actions-runner\_work\next.js\next.js\turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+
+Caused by:
+    0: Looking up data for TaskId 44672 from database failed
+    1: Unable to open static sorted file referenced from 00000392.meta
+    2: Unable to open static sorted file 00000384.sst
+    3: The system cannot find the path specified. (os error 3)
+⨯ Error [TurbopackInternalError]: Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+
+Debug info:
+- Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+  
+  Caused by:
+      0: Looking up data for TaskId 44672 from database failed
+      1: Unable to open static sorted file referenced from 00000392.meta
+      2: Unable to open static sorted file 00000384.sst
+      3: The system cannot find the path specified. (os error 3)
+    at <unknown> (TurbopackInternalError: Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))) {
+  location: 'C:\\actions-runner\\_work\\next.js\\next.js\\turbopack\\crates\\turbo-tasks-backend\\src\\backend\\operation\\mod.rs:156:17'
+}
+
+thread 'tokio-runtime-worker' (92340) panicked at C:\actions-runner\_work\next.js\next.js\turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+
+Caused by:
+    0: Looking up data for TaskId 44672 from database failed
+    1: Unable to open static sorted file referenced from 00000392.meta
+    2: Unable to open static sorted file 00000384.sst
+    3: The system cannot find the path specified. (os error 3)
+Error [TurbopackInternalError]: Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+
+Debug info:
+- Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+  
+  Caused by:
+      0: Looking up data for TaskId 44672 from database failed
+      1: Unable to open static sorted file referenced from 00000392.meta
+      2: Unable to open static sorted file 00000384.sst
+      3: The system cannot find the path specified. (os error 3)
+    at <unknown> (TurbopackInternalError: Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))) {
+  location: 'C:\\actions-runner\\_work\\next.js\\next.js\\turbopack\\crates\\turbo-tasks-backend\\src\\backend\\operation\\mod.rs:156:17'
+}
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+⨯ Error: Cannot find module 'C:\Users\Administrator\Desktop\BrowserBase Pipeline\website-genesis-output\landlordos\.next\dev\server\middleware-manifest.json'
+Require stack:
+- C:\Users\Administrator\Desktop\BrowserBase Pipeline\website-genesis-output\landlordos\node_modules\next\dist\server\next-server.js
+- C:\Users\Administrator\Desktop\BrowserBase Pipeline\website-genesis-output\landlordos\node_modules\next\dist\server\dev\next-dev-server.js
+- C:\Users\Administrator\Desktop\BrowserBase Pipeline\website-genesis-output\landlordos\node_modules\next\dist\server\next.js
+- C:\Users\Administrator\Desktop\BrowserBase Pipeline\website-genesis-output\landlordos\node_modules\next\dist\server\lib\start-server.js
+    at ignore-listed frames {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+
+thread 'tokio-runtime-worker' (103328) panicked at C:\actions-runner\_work\next.js\next.js\turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+
+Caused by:
+    0: Looking up data for TaskId 44672 from database failed
+    1: Unable to open static sorted file referenced from 00000392.meta
+    2: Unable to open static sorted file 00000384.sst
+    3: The system cannot find the path specified. (os error 3)
+
+-----
+[1m[31mFATAL[39m[0m: An unexpected Turbopack error occurred. A panic log has been written to C:\Users\ADMINI~1\AppData\Local\Temp\2\next-panic-403988149ee1c34a174ea5b996eed4e2.log.
+
+To help make Turbopack better, report this error by ]8;;https://github.com/vercel/next.js/discussions/new?category=turbopack-error-report&title=Turbopack%20Error%3A%20Failed%20to%20restore%20task%20data%20%28corrupted%20database%20or%20bug%29%3A%20Meta%20for%20get_written_endpoint_with_issues_operation%20%28TaskId%2044672%29%29&body=Turbopack%20version%3A%20%60d1bd5b58%60%0ANext.js%20version%3A%20%600.0.0%60%0A%0AError%20message%3A%0A%60%60%60%0AFailed%20to%20restore%20task%20data%20%28corrupted%20database%20or%20bug%29%3A%20Meta%20for%20get_written_endpoint_with_issues_operation%20%28TaskId%2044672%29%29%0A%0ADebug%20info%3A%0A-%20Failed%20to%20restore%20task%20data%20%28corrupted%20database%20or%20bug%29%3A%20Meta%20for%20get_written_endpoint_with_issues_operation%20%28TaskId%2044672%29%29%0A%20%20%0A%20%20Caused%20by%3A%0A%20%20%20%20%20%200%3A%20Looking%20up%20data%20for%20TaskId%2044672%20from%20database%20failed%0A%20%20%20%20%20%201%3A%20Unable%20to%20open%20static%20sorted%20file%20referenced%20from%2000000392.meta%0A%20%20%20%20%20%202%3A%20Unable%20to%20open%20static%20sorted%20file%2000000384.sst%0A%20%20%20%20%20%203%3A%20The%20system%20cannot%20find%20the%20path%20specified.%20%28os%20error%203%29%0A%60%60%60&labels=Turbopack,Turbopack%20Panic%20Backtrace\clicking here.]8;;\
+-----
+
+⨯ Error [TurbopackInternalError]: Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+
+Debug info:
+- Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+  
+  Caused by:
+      0: Looking up data for TaskId 44672 from database failed
+      1: Unable to open static sorted file referenced from 00000392.meta
+      2: Unable to open static sorted file 00000384.sst
+      3: The system cannot find the path specified. (os error 3)
+    at <unknown> (TurbopackInternalError: Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))) {
+  location: 'C:\\actions-runner\\_work\\next.js\\next.js\\turbopack\\crates\\turbo-tasks-backend\\src\\backend\\operation\\mod.rs:156:17'
+}
+
+thread 'tokio-runtime-worker' (99268) panicked at C:\actions-runner\_work\next.js\next.js\turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+
+Caused by:
+    0: Looking up data for TaskId 44672 from database failed
+    1: Unable to open static sorted file referenced from 00000392.meta
+    2: Unable to open static sorted file 00000384.sst
+    3: The system cannot find the path specified. (os error 3)
+Error [TurbopackInternalError]: Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+
+Debug info:
+- Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+  
+  Caused by:
+      0: Looking up data for TaskId 44672 from database failed
+      1: Unable to open static sorted file referenced from 00000392.meta
+      2: Unable to open static sorted file 00000384.sst
+      3: The system cannot find the path specified. (os error 3)
+    at <unknown> (TurbopackInternalError: Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))) {
+  location: 'C:\\actions-runner\\_work\\next.js\\next.js\\turbopack\\crates\\turbo-tasks-backend\\src\\backend\\operation\\mod.rs:156:17'
+}
+
+thread 'tokio-runtime-worker' (99268) panicked at C:\actions-runner\_work\next.js\next.js\turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+
+Caused by:
+    0: Looking up data for TaskId 44672 from database failed
+    1: Unable to open static sorted file referenced from 00000392.meta
+    2: Unable to open static sorted file 00000384.sst
+    3: The system cannot find the path specified. (os error 3)
+⨯ Error [TurbopackInternalError]: Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+
+Debug info:
+- Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+  
+  Caused by:
+      0: Looking up data for TaskId 44672 from database failed
+      1: Unable to open static sorted file referenced from 00000392.meta
+      2: Unable to open static sorted file 00000384.sst
+      3: The system cannot find the path specified. (os error 3)
+    at <unknown> (TurbopackInternalError: Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))) {
+  location: 'C:\\actions-runner\\_work\\next.js\\next.js\\turbopack\\crates\\turbo-tasks-backend\\src\\backend\\operation\\mod.rs:156:17'
+}
+
+thread 'tokio-runtime-worker' (22512) panicked at C:\actions-runner\_work\next.js\next.js\turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+
+Caused by:
+    0: Looking up data for TaskId 44672 from database failed
+    1: Unable to open static sorted file referenced from 00000392.meta
+    2: Unable to open static sorted file 00000384.sst
+    3: The system cannot find the path specified. (os error 3)
+Error [TurbopackInternalError]: Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+
+Debug info:
+- Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+  
+  Caused by:
+      0: Looking up data for TaskId 44672 from database failed
+      1: Unable to open static sorted file referenced from 00000392.meta
+      2: Unable to open static sorted file 00000384.sst
+      3: The system cannot find the path specified. (os error 3)
+    at <unknown> (TurbopackInternalError: Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))) {
+  location: 'C:\\actions-runner\\_work\\next.js\\next.js\\turbopack\\crates\\turbo-tasks-backend\\src\\backend\\operation\\mod.rs:156:17'
+}
+
+thread 'tokio-runtime-worker' (99268) panicked at C:\actions-runner\_work\next.js\next.js\turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+
+Caused by:
+    0: Looking up data for TaskId 44672 from database failed
+    1: Unable to open static sorted file referenced from 00000392.meta
+    2: Unable to open static sorted file 00000384.sst
+    3: The system cannot find the path specified. (os error 3)
+⨯ Error [TurbopackInternalError]: Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+
+Debug info:
+- Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+  
+  Caused by:
+      0: Looking up data for TaskId 44672 from database failed
+      1: Unable to open static sorted file referenced from 00000392.meta
+      2: Unable to open static sorted file 00000384.sst
+      3: The system cannot find the path specified. (os error 3)
+    at <unknown> (TurbopackInternalError: Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))) {
+  location: 'C:\\actions-runner\\_work\\next.js\\next.js\\turbopack\\crates\\turbo-tasks-backend\\src\\backend\\operation\\mod.rs:156:17'
+}
+
+thread 'tokio-runtime-worker' (22512) panicked at C:\actions-runner\_work\next.js\next.js\turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+
+Caused by:
+    0: Looking up data for TaskId 44672 from database failed
+    1: Unable to open static sorted file referenced from 00000392.meta
+    2: Unable to open static sorted file 00000384.sst
+    3: The system cannot find the path specified. (os error 3)
+Error [TurbopackInternalError]: Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+
+Debug info:
+- Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+  
+  Caused by:
+      0: Looking up data for TaskId 44672 from database failed
+      1: Unable to open static sorted file referenced from 00000392.meta
+      2: Unable to open static sorted file 00000384.sst
+      3: The system cannot find the path specified. (os error 3)
+    at <unknown> (TurbopackInternalError: Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))) {
+  location: 'C:\\actions-runner\\_work\\next.js\\next.js\\turbopack\\crates\\turbo-tasks-backend\\src\\backend\\operation\\mod.rs:156:17'
+}
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+WARNING: DATABASE_URL not set, using placeholder (development/build only)
+
+thread 'tokio-runtime-worker' (22512) panicked at C:\actions-runner\_work\next.js\next.js\turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for compute_entry_operation (TaskId 44579))
+
+Caused by:
+    0: Looking up data for TaskId 44579 from database failed
+    1: Unable to open static sorted file referenced from 00000421.meta
+    2: Unable to open static sorted file 00000418.sst
+    3: The system cannot find the file specified. (os error 2)
+
+thread 'tokio-runtime-worker' (99268) panicked at C:\actions-runner\_work\next.js\next.js\turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for compute_entry_operation (TaskId 44579))
+
+Caused by:
+    0: Looking up data for TaskId 44579 from database failed
+    1: Unable to open static sorted file referenced from 00000421.meta
+    2: Unable to open static sorted file 00000418.sst
+    3: The system cannot find the file specified. (os error 2)
+⨯ Error [TypeError]: Cannot read properties of undefined (reading 'modules')
+    at module evaluation (.next\dev\server\edge\chunks\05d6d_57670ee9._.js:4363:28)
+    at <unknown> (.next\dev\server\edge\chunks\e83b2_next_dist_esm_build_templates_edge-wrapper_b12d4a13.js:879:13)
+    at runModuleExecutionHooks (.next\dev\server\edge\chunks\e83b2_next_dist_esm_build_templates_edge-wrapper_b12d4a13.js:917:9)
+    at instantiateModule (.next\dev\server\edge\chunks\e83b2_next_dist_esm_build_templates_edge-wrapper_b12d4a13.js:877:9)
+    at getOrInstantiateModuleFromParent (.next\dev\server\edge\chunks\e83b2_next_dist_esm_build_templates_edge-wrapper_b12d4a13.js:830:12)
+    at DevContext.commonJsRequire [as r] (.next\dev\server\edge\chunks\e83b2_next_dist_esm_build_templates_edge-wrapper_b12d4a13.js:259:12)
+    at module evaluation (.next\dev\server\edge\chunks\05d6d_57670ee9._.js:4541:44)
+    at <unknown> (.next\dev\server\edge\chunks\e83b2_next_dist_esm_build_templates_edge-wrapper_b12d4a13.js:879:13)
+    at runModuleExecutionHooks (.next\dev\server\edge\chunks\e83b2_next_dist_esm_build_templates_edge-wrapper_b12d4a13.js:917:9)
+    at instantiateModule (.next\dev\server\edge\chunks\e83b2_next_dist_esm_build_templates_edge-wrapper_b12d4a13.js:877:9)
+
+thread 'tokio-runtime-worker' (112960) panicked at C:\actions-runner\_work\next.js\next.js\turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+
+Caused by:
+    0: Looking up data for TaskId 44672 from database failed
+    1: Unable to open static sorted file referenced from 00000392.meta
+    2: Unable to open static sorted file 00000384.sst
+    3: The system cannot find the file specified. (os error 2)
+
+-----
+[1m[31mFATAL[39m[0m: An unexpected Turbopack error occurred. A panic log has been written to C:\Users\ADMINI~1\AppData\Local\Temp\2\next-panic-403988149ee1c34a174ea5b996eed4e2.log.
+
+To help make Turbopack better, report this error by ]8;;https://github.com/vercel/next.js/discussions/new?category=turbopack-error-report&title=Turbopack%20Error%3A%20Failed%20to%20restore%20task%20data%20%28corrupted%20database%20or%20bug%29%3A%20Meta%20for%20get_written_endpoint_with_issues_operation%20%28TaskId%2044672%29%29&body=Turbopack%20version%3A%20%60d1bd5b58%60%0ANext.js%20version%3A%20%600.0.0%60%0A%0AError%20message%3A%0A%60%60%60%0AFailed%20to%20restore%20task%20data%20%28corrupted%20database%20or%20bug%29%3A%20Meta%20for%20get_written_endpoint_with_issues_operation%20%28TaskId%2044672%29%29%0A%0ADebug%20info%3A%0A-%20Failed%20to%20restore%20task%20data%20%28corrupted%20database%20or%20bug%29%3A%20Meta%20for%20get_written_endpoint_with_issues_operation%20%28TaskId%2044672%29%29%0A%20%20%0A%20%20Caused%20by%3A%0A%20%20%20%20%20%200%3A%20Looking%20up%20data%20for%20TaskId%2044672%20from%20database%20failed%0A%20%20%20%20%20%201%3A%20Unable%20to%20open%20static%20sorted%20file%20referenced%20from%2000000392.meta%0A%20%20%20%20%20%202%3A%20Unable%20to%20open%20static%20sorted%20file%2000000384.sst%0A%20%20%20%20%20%203%3A%20The%20system%20cannot%20find%20the%20file%20specified.%20%28os%20error%202%29%0A%60%60%60&labels=Turbopack,Turbopack%20Panic%20Backtrace\clicking here.]8;;\
+-----
+
+⨯ Error [TurbopackInternalError]: Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+
+Debug info:
+- Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+  
+  Caused by:
+      0: Looking up data for TaskId 44672 from database failed
+      1: Unable to open static sorted file referenced from 00000392.meta
+      2: Unable to open static sorted file 00000384.sst
+      3: The system cannot find the file specified. (os error 2)
+    at <unknown> (TurbopackInternalError: Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))) {
+  location: 'C:\\actions-runner\\_work\\next.js\\next.js\\turbopack\\crates\\turbo-tasks-backend\\src\\backend\\operation\\mod.rs:156:17'
+}
+
+thread 'tokio-runtime-worker' (22512) panicked at C:\actions-runner\_work\next.js\next.js\turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+
+Caused by:
+    0: Looking up data for TaskId 44672 from database failed
+    1: Unable to open static sorted file referenced from 00000392.meta
+    2: Unable to open static sorted file 00000384.sst
+    3: The system cannot find the file specified. (os error 2)
+Error [TurbopackInternalError]: Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+
+Debug info:
+- Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+  
+  Caused by:
+      0: Looking up data for TaskId 44672 from database failed
+      1: Unable to open static sorted file referenced from 00000392.meta
+      2: Unable to open static sorted file 00000384.sst
+      3: The system cannot find the file specified. (os error 2)
+    at <unknown> (TurbopackInternalError: Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))) {
+  location: 'C:\\actions-runner\\_work\\next.js\\next.js\\turbopack\\crates\\turbo-tasks-backend\\src\\backend\\operation\\mod.rs:156:17'
+}
+
+thread 'tokio-runtime-worker' (99268) panicked at C:\actions-runner\_work\next.js\next.js\turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+
+Caused by:
+    0: Looking up data for TaskId 44672 from database failed
+    1: Unable to open static sorted file referenced from 00000392.meta
+    2: Unable to open static sorted file 00000384.sst
+    3: The system cannot find the file specified. (os error 2)
+⨯ Error [TurbopackInternalError]: Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+
+Debug info:
+- Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+  
+  Caused by:
+      0: Looking up data for TaskId 44672 from database failed
+      1: Unable to open static sorted file referenced from 00000392.meta
+      2: Unable to open static sorted file 00000384.sst
+      3: The system cannot find the file specified. (os error 2)
+    at <unknown> (TurbopackInternalError: Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))) {
+  location: 'C:\\actions-runner\\_work\\next.js\\next.js\\turbopack\\crates\\turbo-tasks-backend\\src\\backend\\operation\\mod.rs:156:17'
+}
+
+thread 'tokio-runtime-worker' (112960) panicked at C:\actions-runner\_work\next.js\next.js\turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+
+Caused by:
+    0: Looking up data for TaskId 44672 from database failed
+    1: Unable to open static sorted file referenced from 00000392.meta
+    2: Unable to open static sorted file 00000384.sst
+    3: The system cannot find the file specified. (os error 2)
+Error [TurbopackInternalError]: Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+
+Debug info:
+- Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+  
+  Caused by:
+      0: Looking up data for TaskId 44672 from database failed
+      1: Unable to open static sorted file referenced from 00000392.meta
+      2: Unable to open static sorted file 00000384.sst
+      3: The system cannot find the file specified. (os error 2)
+    at <unknown> (TurbopackInternalError: Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))) {
+  location: 'C:\\actions-runner\\_work\\next.js\\next.js\\turbopack\\crates\\turbo-tasks-backend\\src\\backend\\operation\\mod.rs:156:17'
+}
+
+thread 'tokio-runtime-worker' (112960) panicked at C:\actions-runner\_work\next.js\next.js\turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+
+Caused by:
+    0: Looking up data for TaskId 44672 from database failed
+    1: Unable to open static sorted file referenced from 00000392.meta
+    2: Unable to open static sorted file 00000384.sst
+    3: The system cannot find the file specified. (os error 2)
+⨯ Error [TurbopackInternalError]: Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+
+Debug info:
+- Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+  
+  Caused by:
+      0: Looking up data for TaskId 44672 from database failed
+      1: Unable to open static sorted file referenced from 00000392.meta
+      2: Unable to open static sorted file 00000384.sst
+      3: The system cannot find the file specified. (os error 2)
+    at <unknown> (TurbopackInternalError: Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))) {
+  location: 'C:\\actions-runner\\_work\\next.js\\next.js\\turbopack\\crates\\turbo-tasks-backend\\src\\backend\\operation\\mod.rs:156:17'
+}
+
+thread 'tokio-runtime-worker' (92340) panicked at C:\actions-runner\_work\next.js\next.js\turbopack\crates\turbo-tasks-backend\src\backend\operation\mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+
+Caused by:
+    0: Looking up data for TaskId 44672 from database failed
+    1: Unable to open static sorted file referenced from 00000392.meta
+    2: Unable to open static sorted file 00000384.sst
+    3: The system cannot find the file specified. (os error 2)
+Error [TurbopackInternalError]: Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+
+Debug info:
+- Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))
+  
+  Caused by:
+      0: Looking up data for TaskId 44672 from database failed
+      1: Unable to open static sorted file referenced from 00000392.meta
+      2: Unable to open static sorted file 00000384.sst
+      3: The system cannot find the file specified. (os error 2)
+    at <unknown> (TurbopackInternalError: Failed to restore task data (corrupted database or bug): Meta for get_written_endpoint_with_issues_operation (TaskId 44672))) {
+  location: 'C:\\actions-runner\\_work\\next.js\\next.js\\turbopack\\crates\\turbo-tasks-backend\\src\\backend\\operation\\mod.rs:156:17'
+}
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+✓ Compiled in 22ms
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)

@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import { Menu, X, Moon, Sun, Home, Building2, Users, DollarSign, Wrench, LogOut } from 'lucide-react'
@@ -26,8 +27,9 @@ export default function Header() {
     <header className="border-b border-slate-700 bg-background">
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between">
         {/* Logo */}
-        <Link href={isLoggedIn ? "/dashboard" : "/"} className="text-2xl font-bold text-primary">
-          LandlordOS
+        <Link href={isLoggedIn ? "/dashboard" : "/"} className="flex items-center gap-2">
+          <Image src="/logo.svg" alt="LandlordOS logo" width={40} height={40} className="h-10 w-10" />
+          <span className="text-2xl font-bold text-primary">LandlordOS</span>
         </Link>
 
         {/* Desktop Navigation */}

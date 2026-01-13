@@ -12,6 +12,12 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
+    // Pagination parameters
+    const { searchParams } = new URL(request.url)
+    const page = parseInt(searchParams.get('page') || '1', 10)
+    const limit = Math.min(parseInt(searchParams.get('limit') || '50', 10), 100) // Max 100 per page
+    const offset = (page - 1) * limit
+
     const result = await db
       .select({
         payment: payments,
@@ -25,8 +31,17 @@ export async function GET(request: NextRequest) {
       .leftJoin(properties, eq(units.propertyId, properties.id))
       .where(eq(properties.userId, session.user.id))
       .orderBy(desc(payments.paymentDate))
+      .limit(limit)
+      .offset(offset)
 
-    return NextResponse.json({ payments: result })
+    return NextResponse.json({
+      payments: result,
+      pagination: {
+        page,
+        limit,
+        hasMore: result.length === limit
+      }
+    })
   } catch (error) {
     console.error('Failed to fetch payments:', error)
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
@@ -52,16 +67,34 @@ export async function POST(request: NextRequest) {
     }
 
     // Verify tenant ownership
-    const result = await db
-      .select()
-      .from(tenants)
-      .leftJoin(units, eq(tenants.unitId, units.id))
-      .leftJoin(properties, eq(units.propertyId, properties.id))
-      .where(and(eq(tenants.id, tenantId), eq(properties.userId, session.user.id)))
-      .limit(1)
+    // FIXED: Handle tenants without units (unitId can be null)
+    const tenant = await db.query.tenants.findFirst({
+      where: eq(tenants.id, tenantId),
+      with: {
+        unit: {
+          with: {
+            property: true
+          }
+        }
+      }
+    })
 
-    if (result.length === 0) {
+    if (!tenant) {
       return NextResponse.json({ error: 'Tenant not found' }, { status: 404 })
+    }
+
+    // Check ownership: Either tenant has no unit (allowed), or unit's property belongs to user
+    if (tenant.unit && tenant.unit.property?.userId !== session.user.id) {
+      return NextResponse.json({ error: 'Unauthorized access to tenant' }, { status: 403 })
+    }
+
+    // If tenant has no unit, we need to verify they belong to this user via another method
+    // For now, only allow recording payments for tenants with assigned units
+    if (!tenant.unitId) {
+      return NextResponse.json(
+        { error: 'Cannot record payment for tenant without assigned unit' },
+        { status: 400 }
+      )
     }
 
     const [payment] = await db

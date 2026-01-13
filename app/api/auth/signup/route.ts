@@ -5,9 +5,32 @@ import { hashPassword, validatePassword } from '@/lib/password'
 import { sendWelcomeEmail } from '@/lib/email'
 import { eq } from 'drizzle-orm'
 import { signIn } from '@/lib/auth'
+import { getAuthRateLimit, getIdentifier } from '@/lib/rate-limit'
 
 export async function POST(request: NextRequest) {
   try {
+    // Rate limiting: 5 attempts per 15 minutes per IP
+    const identifier = getIdentifier(request)
+    const rateLimitResult = getAuthRateLimit(identifier)
+
+    if (!rateLimitResult.success) {
+      const resetTime = new Date(rateLimitResult.reset).toLocaleTimeString()
+      return NextResponse.json(
+        {
+          error: 'Too many signup attempts. Please try again later.',
+          retryAfter: Math.ceil((rateLimitResult.reset - Date.now()) / 1000)
+        },
+        {
+          status: 429,
+          headers: {
+            'X-RateLimit-Limit': rateLimitResult.limit.toString(),
+            'X-RateLimit-Remaining': '0',
+            'X-RateLimit-Reset': rateLimitResult.reset.toString(),
+          }
+        }
+      )
+    }
+
     const body = await request.json()
     const { name, email, password } = body
 

@@ -6,10 +6,25 @@ import { users, invoices } from '@/lib/schema'
 import { eq } from 'drizzle-orm'
 import Stripe from 'stripe'
 
+// CRITICAL: Stripe webhook secret MUST be configured
+// Allow build to proceed, but will throw at runtime if missing
 const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET || ''
+
+if (!webhookSecret && process.env.NEXT_PHASE !== 'phase-production-build') {
+  if (process.env.NODE_ENV === 'production') {
+    throw new Error('STRIPE_WEBHOOK_SECRET environment variable is required for production')
+  }
+  console.warn('WARNING: STRIPE_WEBHOOK_SECRET not set')
+}
 
 export async function POST(request: NextRequest) {
   try {
+    // Runtime validation: ensure webhook secret is configured
+    if (!webhookSecret) {
+      console.error('STRIPE_WEBHOOK_SECRET is not configured')
+      return NextResponse.json({ error: 'Webhook not configured' }, { status: 500 })
+    }
+
     const body = await request.text()
     const signature = request.headers.get('stripe-signature')
 

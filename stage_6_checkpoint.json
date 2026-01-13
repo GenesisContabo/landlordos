@@ -1,0 +1,31 @@
+{
+  "stage": 6,
+  "stage_name": "CONTENT",
+  "business_id": "landlordos",
+  "verified": true,
+  "blocks_deploy": false,
+  "completed_at": "2026-01-13T20:40:42.349Z",
+  "executor": "hudson",
+  "score": 96,
+  "attempt": 3,
+  "max_attempts": 3,
+  "audit_results": {
+    "visual": 100,
+    "seo": 100,
+    "accessibility": 100,
+    "performance": 75,
+    "security": 100,
+    "brand": 100
+  },
+  "fixes_applied": [
+    "Fixed middleware.ts to avoid calling auth() in Edge Runtime",
+    "Changed to cookie-based session detection for public routes",
+    "Public routes (/, /pricing, /features) now return HTTP 200",
+    "Build completes successfully"
+  ],
+  "thanatos_review": {
+    "verdict": "APPROVED",
+    "retry_count": 2,
+    "escalation_required": false
+  }
+}

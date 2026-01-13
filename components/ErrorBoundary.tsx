@@ -40,7 +40,8 @@ export class ErrorBoundary extends Component<Props, State> {
             <p className="text-gray-600 mb-6">
               We encountered an unexpected error. Please try refreshing the page.
             </p>
-            {this.state.error && (
+            {/* Only show error details in development */}
+            {process.env.NODE_ENV === 'development' && this.state.error && (
               <div className="bg-gray-100 rounded p-4 mb-6 text-left">
                 <p className="text-sm font-mono text-gray-700 break-all">
                   {this.state.error.message}

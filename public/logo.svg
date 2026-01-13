@@ -1,0 +1,55 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- LandlordOS Logo - Building with Key -->
+  <defs>
+    <linearGradient id="primaryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563EB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E40AF;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="secondaryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#059669;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#047857;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Circle -->
+  <circle cx="100" cy="100" r="95" fill="url(#primaryGradient)" opacity="0.1"/>
+
+  <!-- Building Structure -->
+  <g id="building">
+    <!-- Main Building -->
+    <rect x="60" y="70" width="80" height="90" fill="url(#primaryGradient)" rx="4"/>
+
+    <!-- Windows Row 1 -->
+    <rect x="70" y="80" width="12" height="12" fill="#F1F5F9" rx="1" opacity="0.9"/>
+    <rect x="94" y="80" width="12" height="12" fill="#F1F5F9" rx="1" opacity="0.9"/>
+    <rect x="118" y="80" width="12" height="12" fill="#F1F5F9" rx="1" opacity="0.9"/>
+
+    <!-- Windows Row 2 -->
+    <rect x="70" y="100" width="12" height="12" fill="#F1F5F9" rx="1" opacity="0.9"/>
+    <rect x="94" y="100" width="12" height="12" fill="#F1F5F9" rx="1" opacity="0.9"/>
+    <rect x="118" y="100" width="12" height="12" fill="#F1F5F9" rx="1" opacity="0.9"/>
+
+    <!-- Windows Row 3 -->
+    <rect x="70" y="120" width="12" height="12" fill="#F1F5F9" rx="1" opacity="0.9"/>
+    <rect x="94" y="120" width="12" height="12" fill="#F1F5F9" rx="1" opacity="0.9"/>
+    <rect x="118" y="120" width="12" height="12" fill="#F1F5F9" rx="1" opacity="0.9"/>
+
+    <!-- Door -->
+    <rect x="88" y="140" width="24" height="20" fill="#EA580C" rx="2"/>
+    <circle cx="106" cy="150" r="1.5" fill="#F1F5F9"/>
+
+    <!-- Roof -->
+    <path d="M 55 70 L 100 45 L 145 70 Z" fill="url(#secondaryGradient)"/>
+  </g>
+
+  <!-- Key Icon (representing access/management) -->
+  <g id="key" transform="translate(130, 130)">
+    <circle cx="15" cy="15" r="8" fill="none" stroke="#059669" stroke-width="3"/>
+    <line x1="15" y1="15" x2="35" y2="35" stroke="#059669" stroke-width="3" stroke-linecap="round"/>
+    <line x1="28" y1="28" x2="28" y2="32" stroke="#059669" stroke-width="3" stroke-linecap="round"/>
+    <line x1="31" y1="31" x2="31" y2="35" stroke="#059669" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- Accent Circle -->
+  <circle cx="100" cy="100" r="95" fill="none" stroke="url(#primaryGradient)" stroke-width="2" opacity="0.3"/>
+</svg>

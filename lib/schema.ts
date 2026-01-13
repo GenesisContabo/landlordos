@@ -85,13 +85,16 @@ export const maintenanceRequests = pgTable('maintenance_requests', {
 })
 
 // PASSWORD RESET TOKENS TABLE
+// NOTE: Tokens should be hashed before storage in production
+// Store bcrypt hash of token, not plaintext
 export const passwordResetTokens = pgTable('password_reset_tokens', {
   id: uuid('id').defaultRandom().primaryKey(),
   userId: uuid('user_id').notNull().references(() => users.id, { onDelete: 'cascade' }),
-  token: varchar('token', { length: 255 }).notNull().unique(),
+  tokenHash: varchar('token_hash', { length: 255 }).notNull().unique(), // Store hash, not plaintext
   expiresAt: timestamp('expires_at').notNull(),
   used: boolean('used').default(false),
   createdAt: timestamp('created_at').defaultNow(),
+  ipAddress: varchar('ip_address', { length: 45 }), // Track IP for security
 })
 
 // INVOICES TABLE
