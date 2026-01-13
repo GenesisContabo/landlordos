@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import { showSuccess, showError } from '@/lib/toast'
 
 export default function LoginForm() {
   const router = useRouter()
@@ -27,15 +28,18 @@ export default function LoginForm() {
       })
 
       if (result?.error) {
+        showError('Invalid email or password')
         setError('Invalid email or password')
         setLoading(false)
         return
       }
 
       // Success
+      showSuccess('Welcome back!')
       router.push('/dashboard')
       router.refresh()
     } catch (err) {
+      showError('An unexpected error occurred')
       setError('An unexpected error occurred')
       setLoading(false)
     }

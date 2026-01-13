@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import { showSuccess, showError } from '@/lib/toast'
 
 type Property = {
   id: string
@@ -29,9 +30,10 @@ export default function PropertyList({ initialProperties }: { initialProperties:
       if (!res.ok) throw new Error('Failed to delete')
 
       setProperties(properties.filter(p => p.id !== id))
+      showSuccess('Property deleted successfully')
     } catch (error) {
       console.error(error)
-      alert('Failed to delete property')
+      showError('Failed to delete property')
     } finally {
       setDeleting(null)
     }

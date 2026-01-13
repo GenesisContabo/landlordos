@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { showSuccess, showError } from '@/lib/toast'
 
 function validatePassword(password: string): {
   valid: boolean
@@ -67,6 +68,7 @@ export default function SignupForm() {
         if (data.fields) {
           setFieldErrors(data.fields)
         } else {
+          showError(data.error || 'Signup failed')
           setError(data.error || 'Signup failed')
         }
         setLoading(false)
@@ -74,9 +76,11 @@ export default function SignupForm() {
       }
 
       // Success - redirect to dashboard
+      showSuccess('Account created successfully!')
       router.push('/dashboard')
       router.refresh()
     } catch (err) {
+      showError('An unexpected error occurred')
       setError('An unexpected error occurred')
       setLoading(false)
     }

@@ -1,30 +1,44 @@
 'use client'
 
+import { useState } from 'react'
 import { PRICING } from '@/lib/stripe'
 import PricingCard from '@/components/PricingCard'
 import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
+import { showError, showLoading, dismissToast } from '@/lib/toast'
 
 interface PricingClientProps {
   currentTier: string
 }
 
 export default function PricingClient({ currentTier }: PricingClientProps) {
+  const [loadingPriceId, setLoadingPriceId] = useState<string | null>(null)
+
   const handleUpgrade = async (priceId: string) => {
-    const response = await fetch('/api/stripe/checkout', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ priceId }),
-    })
+    setLoadingPriceId(priceId)
+    const toastId = showLoading('Processing...')
 
-    if (!response.ok) {
-      throw new Error('Failed to create checkout session')
+    try {
+      const response = await fetch('/api/stripe/checkout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ priceId }),
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to create checkout session')
+      }
+
+      const { url } = await response.json()
+      dismissToast(toastId)
+      window.location.href = url
+    } catch (error) {
+      dismissToast(toastId)
+      showError('Failed to start checkout. Please try again.')
+      setLoadingPriceId(null)
     }
-
-    const { url } = await response.json()
-    window.location.href = url
   }
 
   return (
