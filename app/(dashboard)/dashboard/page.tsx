@@ -4,6 +4,15 @@ import { db } from '@/lib/db'
 import { properties, units, tenants, payments, maintenanceRequests } from '@/lib/schema'
 import { eq, and, sql, desc } from 'drizzle-orm'
 import Link from 'next/link'
+import { Metadata } from 'next'
+import { createMetadata } from '@/lib/metadata'
+
+export const metadata: Metadata = createMetadata({
+  title: 'Dashboard',
+  description: 'Manage your properties, tenants, and maintenance requests from your LandlordOS dashboard.',
+  path: '/dashboard',
+  noIndex: true,
+})
 
 export default async function DashboardPage() {
   const session = await auth()

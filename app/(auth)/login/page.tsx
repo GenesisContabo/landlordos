@@ -1,11 +1,14 @@
 import { Metadata } from 'next'
 import LoginForm from '@/components/auth/LoginForm'
 import Link from 'next/link'
+import { createMetadata } from '@/lib/metadata'
 
-export const metadata: Metadata = {
-  title: 'Log In - LandlordOS',
-  robots: { index: false, follow: false },
-}
+export const metadata: Metadata = createMetadata({
+  title: 'Sign In',
+  description: 'Sign in to your LandlordOS account to manage your properties.',
+  path: '/login',
+  noIndex: true,
+})
 
 export default function LoginPage() {
   return (

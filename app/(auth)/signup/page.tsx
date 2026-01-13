@@ -1,11 +1,14 @@
 import { Metadata } from 'next'
 import SignupForm from '@/components/auth/SignupForm'
 import Link from 'next/link'
+import { createMetadata } from '@/lib/metadata'
 
-export const metadata: Metadata = {
-  title: 'Sign Up - LandlordOS',
-  robots: { index: false, follow: false },
-}
+export const metadata: Metadata = createMetadata({
+  title: 'Create Account',
+  description: 'Create your free LandlordOS account and start managing your properties today.',
+  path: '/signup',
+  noIndex: true,
+})
 
 export default function SignupPage() {
   return (
