@@ -2,8 +2,11 @@ import { NextRequest, NextResponse } from 'next/server'
 import { verifyCsrfToken, csrfErrorResponse, addCsrfToken } from '@/lib/csrf'
 
 export async function middleware(request: NextRequest) {
-  // 1. CSRF Protection for API routes
-  if (request.nextUrl.pathname.startsWith('/api')) {
+  const pathname = request.nextUrl.pathname
+
+  // 1. CSRF Protection for API routes (but exclude auth endpoints)
+  // Auth endpoints handle CSRF via the verifyCsrfToken function's internal skip list
+  if (pathname.startsWith('/api') && !pathname.startsWith('/api/auth')) {
     if (!verifyCsrfToken(request)) {
       return csrfErrorResponse()
     }
@@ -12,13 +15,12 @@ export async function middleware(request: NextRequest) {
   // 2. Authentication check for protected routes
   // Define public routes that don't require authentication
   const publicRoutes = ['/', '/pricing', '/features', '/about', '/robots.txt', '/sitemap.xml']
-  const isPublicRoute = publicRoutes.some(route => request.nextUrl.pathname === route)
+  const isPublicRoute = publicRoutes.some(route => pathname === route)
 
-  const isAuthRoute = request.nextUrl.pathname.startsWith('/login') ||
-                     request.nextUrl.pathname.startsWith('/signup')
+  const isAuthRoute = pathname.startsWith('/login') || pathname.startsWith('/signup')
 
   // Allow public routes, auth routes, and API auth routes without redirect
-  if (isPublicRoute || isAuthRoute || request.nextUrl.pathname.startsWith('/api/auth')) {
+  if (isPublicRoute || isAuthRoute || pathname.startsWith('/api/auth')) {
     const response = NextResponse.next()
     return addCsrfToken(response)
   }
