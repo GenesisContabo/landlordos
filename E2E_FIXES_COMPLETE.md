@@ -120,10 +120,23 @@ NEXTAUTH_SECRET=your-secret-key
 
 | Component | Code Fix | Deployed | Verified |
 |-----------|----------|----------|----------|
-| PricingCard.tsx | YES | PENDING | PENDING |
-| Footer.tsx | YES | PENDING | PENDING |
+| PricingCard.tsx | YES | YES | YES |
+| Footer.tsx | YES | YES | YES |
 
-**Note:** Code pushed to GitHub at commit 108dfa6. Vercel auto-deployment in progress.
+**Verified on Live Site:** 2026-01-14
+
+### Verification Evidence
+
+1. **Footer Links**: All footer links now have proper href values:
+   - Features -> `/features`
+   - Pricing -> `/pricing`
+   - Changelog -> `/features`
+   - About, Blog, Contact, Privacy, Terms -> `/` (homepage, as dedicated pages don't exist)
+
+2. **Checkout Buttons**: Click on "Upgrade to Starter" now displays:
+   > "Payment system is being configured. Please try again later or contact support."
+
+3. **Screenshot Evidence**: `proofs/checkout_error_message_verified.png`
 
 ---
 
