@@ -1,0 +1,66 @@
+{
+  "stage": 9,
+  "stage_name": "TRAFFIC",
+  "business_id": "landlordos",
+  "verified": false,
+  "completed_at": null,
+  "executor": "claude_code",
+  "score": 0,
+  "status": "BLOCKED_BY_GA4_REQUIREMENT",
+  "blocking_issue": {
+    "type": "SHARED_GA4_ID_DETECTED",
+    "current_id": "G-5B00STQFQL",
+    "required_action": "Create NEW unique GA4 property for LandlordOS",
+    "tools_attempted": [
+      "Cursor (unavailable)",
+      "Codex (unavailable)",
+      "Chrome extension (not connected)"
+    ],
+    "manual_setup_required": true
+  },
+  "manual_setup_guide": "MANUAL_GA4_SETUP.md",
+  "requirements_to_complete": {
+    "ga4_property": {
+      "status": "REQUIRED",
+      "current": "Using shared G-5B00STQFQL (INVALID)",
+      "needed": "New unique Measurement ID (G-XXXXXXXXXX)",
+      "steps": "See MANUAL_GA4_SETUP.md"
+    },
+    "gsc_setup": {
+      "status": "REQUIRED",
+      "current": "Not configured",
+      "needed": "Property verified with sitemap submitted",
+      "steps": "See MANUAL_GA4_SETUP.md"
+    },
+    "directory_submissions": {
+      "status": "OPTIONAL",
+      "available": 209,
+      "target": 100,
+      "script": "scripts/directory_submitter.py"
+    }
+  },
+  "deployment_state": {
+    "live_url": "https://landlordos.vercel.app",
+    "current_ga4_id": "G-5B00STQFQL",
+    "tracking_active": true,
+    "tracking_valid": false,
+    "note": "Site is tracking but using SHARED ID which violates Genesis Law 1"
+  },
+  "next_steps": [
+    "1. Follow MANUAL_GA4_SETUP.md to create new GA4 property",
+    "2. Copy new Measurement ID (G-XXXXXXXXXX)",
+    "3. Update Vercel environment variable NEXT_PUBLIC_GA_MEASUREMENT_ID",
+    "4. Redeploy to Vercel with new ID",
+    "5. Take screenshot of GA4 property showing new ID",
+    "6. Create stage_9_output.json with new IDs",
+    "7. Set up Google Search Console",
+    "8. Submit sitemap to GSC",
+    "9. Update this checkpoint with verified=true"
+  ],
+  "thanatos_review": {
+    "verdict": "BLOCKED",
+    "notes": "GA4/GSC enforcement hook correctly blocking shared GA4 ID usage. Stage 9 cannot be marked complete until unique GA4 property is created and deployed. All automated tools (Cursor, Codex, Chrome) unavailable - manual setup required.",
+    "retry_count": 0,
+    "enforcement_hook": "ga4_gsc_enforcement_hook.py"
+  }
+}

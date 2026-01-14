@@ -57,9 +57,12 @@ export default function SignupForm() {
     }
 
     try {
+      const headers = getCsrfHeaders()
+      console.log('CSRF headers being sent:', headers)
+
       const res = await fetch('/api/auth/signup', {
         method: 'POST',
-        headers: getCsrfHeaders(),
+        headers,
         body: JSON.stringify({ name, email, password }),
       })
 
