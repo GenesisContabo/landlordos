@@ -22,7 +22,7 @@ export async function middleware(request: NextRequest) {
   // Allow public routes, auth routes, and API auth routes without redirect
   if (isPublicRoute || isAuthRoute || pathname.startsWith('/api/auth')) {
     const response = NextResponse.next()
-    return addCsrfToken(response)
+    return addCsrfToken(response, request)
   }
 
   // For protected routes (like /dashboard), check for session token in cookies
@@ -42,7 +42,7 @@ export async function middleware(request: NextRequest) {
 
   // 3. Add CSRF token to response
   const response = NextResponse.next()
-  return addCsrfToken(response)
+  return addCsrfToken(response, request)
 }
 
 export const config = {

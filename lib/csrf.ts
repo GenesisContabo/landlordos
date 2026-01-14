@@ -62,11 +62,11 @@ export function verifyCsrfToken(request: NextRequest): boolean {
 }
 
 /**
- * Add CSRF token to response
+ * Add CSRF token to response (if not already present in request)
  */
-export function addCsrfToken(response: NextResponse): NextResponse {
-  // Check if token already exists
-  const existingToken = response.cookies.get(CSRF_TOKEN_NAME)
+export function addCsrfToken(response: NextResponse, request?: NextRequest): NextResponse {
+  // Check if token already exists in the incoming request
+  const existingToken = request?.cookies.get(CSRF_TOKEN_NAME)?.value
 
   if (!existingToken) {
     const token = generateCsrfToken()
