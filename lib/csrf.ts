@@ -36,11 +36,13 @@ export function verifyCsrfToken(request: NextRequest): boolean {
     return true
   }
 
-  // Skip CSRF check for webhooks and public APIs
+  // Skip CSRF check for webhooks, public APIs, and auth endpoints
   const pathname = request.nextUrl.pathname
   if (
     pathname.startsWith('/api/stripe/webhook') ||
-    pathname.startsWith('/api/auth/callback')
+    pathname.startsWith('/api/auth/callback') ||
+    pathname.startsWith('/api/auth/signup') ||
+    pathname.startsWith('/api/auth/login')
   ) {
     return true
   }

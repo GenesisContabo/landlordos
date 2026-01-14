@@ -35,6 +35,30 @@ test('Debug CSRF token flow', async ({ page }) => {
     console.log(`   Value: ${csrfSecretValue.substring(0, 20)}...`)
   }
 
+  // Test the getCsrfHeaders function logic directly in browser
+  const testHeaders = await page.evaluate(() => {
+    // Inline the function to test if logic works
+    function getCsrfToken() {
+      if (typeof document === 'undefined') return null
+      const cookies = document.cookie.split(';')
+      for (const cookie of cookies) {
+        const [name, value] = cookie.trim().split('=')
+        if (name === 'csrf-secret') {
+          return decodeURIComponent(value)
+        }
+      }
+      return null
+    }
+
+    const token = getCsrfToken()
+    return {
+      token: token ? token.substring(0, 20) + '...' : null,
+      wouldSendHeader: !!token,
+    }
+  })
+
+  console.log('\n🧪 Direct function test:', testHeaders)
+
   // Fill form and intercept request to see headers
   await page.fill('input[name="name"]', 'Debug Test')
   await page.fill('input[name="email"]', `debug-${Date.now()}@test.com`)

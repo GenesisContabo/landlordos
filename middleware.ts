@@ -4,9 +4,9 @@ import { verifyCsrfToken, csrfErrorResponse, addCsrfToken } from '@/lib/csrf'
 export async function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
 
-  // 1. CSRF Protection for API routes (but exclude auth endpoints)
-  // Auth endpoints handle CSRF via the verifyCsrfToken function's internal skip list
-  if (pathname.startsWith('/api') && !pathname.startsWith('/api/auth')) {
+  // 1. CSRF Protection for API routes
+  // Exclusions are handled in verifyCsrfToken function
+  if (pathname.startsWith('/api')) {
     if (!verifyCsrfToken(request)) {
       return csrfErrorResponse()
     }
