@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { showSuccess, showError } from '@/lib/toast'
+import { getCsrfHeaders } from '@/lib/csrf-client'
 
 function validatePassword(password: string): {
   valid: boolean
@@ -58,7 +59,7 @@ export default function SignupForm() {
     try {
       const res = await fetch('/api/auth/signup', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: getCsrfHeaders(),
         body: JSON.stringify({ name, email, password }),
       })
 
