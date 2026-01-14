@@ -2,6 +2,7 @@
 
 import { Check } from 'lucide-react'
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 
 interface PricingCardProps {
   name: string
@@ -21,15 +22,30 @@ export default function PricingCard({
   onUpgrade,
 }: PricingCardProps) {
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const router = useRouter()
 
   const handleUpgrade = async () => {
-    if (!priceId || !onUpgrade) return
+    setError(null)
+
+    // If no onUpgrade callback provided, redirect to signup
+    if (!onUpgrade) {
+      router.push('/signup')
+      return
+    }
+
+    // If priceId is empty or null, show configuration error
+    if (!priceId) {
+      setError('Payment system is being configured. Please try again later or contact support.')
+      return
+    }
 
     setLoading(true)
     try {
       await onUpgrade(priceId)
     } catch (error) {
       console.error('Upgrade error:', error)
+      setError('Failed to start checkout. Please try again.')
     } finally {
       setLoading(false)
     }
@@ -68,6 +84,12 @@ export default function PricingCard({
           </li>
         ))}
       </ul>
+
+      {error && (
+        <div className="mb-4 rounded-lg bg-red-50 border border-red-200 p-3 text-sm text-red-600">
+          {error}
+        </div>
+      )}
 
       {isCurrentPlan ? (
         <button
